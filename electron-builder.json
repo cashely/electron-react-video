@@ -1,0 +1,9 @@
+{
+	"appId": "com.electron.react.video.com",
+	"files": [
+		"**/*",
+		"build/**/*"
+	],
+	"extends": null,
+	"asar": false
+}

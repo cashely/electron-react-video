@@ -4,9 +4,16 @@ const path = require('path');
 
 const log = require('electron-log');
 
+const store = require('./utils/store');
+
+const handle = require('./utils/handle');
+
 log.transports.file.resolvePathFn = () => path.join(app.getAppPath(), 'logs/main.log');
 
 log.info(app.getAppPath())
+
+store.set('name', 12);
+store.set('name2', 12);
 
 require('./server/app')
 
@@ -29,7 +36,7 @@ const createWindow = () => {
     height: 800,
     webPreferences: {
       webSecurity: false,
-      preload: './preload.js',
+      preload: app.getAppPath() + '/preload.js',
     },
   });
 
@@ -40,6 +47,8 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  handle(mainWindow);
 
   // utils(mainWindow);
 };

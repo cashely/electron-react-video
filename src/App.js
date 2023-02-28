@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
 import { Button } from 'antd';
+import Layout from './components/Layout';
+import './less/index.scss';
 
 function App() {
   return (
-    <div className="App">
-      <Button type="primary">开始</Button>
+    <div className="content">
+      <Layout />
     </div>
   );
 }

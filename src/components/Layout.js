@@ -23,7 +23,7 @@ function Layout() {
                     <Routes>
                         <Route path="/">
                             <Route index element={<List />} />
-                            <Route path="create" element={<Create />}/>
+                            <Route path="create/:name" element={<Create />}/>
                         </Route>
                     </Routes>
                 </Content>

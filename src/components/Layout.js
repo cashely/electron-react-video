@@ -1,21 +1,34 @@
 // import {} from 'react';
-import { Layout as layout } from 'antd';
+import { Layout as Zayout } from 'antd';
+import { Routes, Route } from 'react-router-dom';
 import Empty from './Empty';
+import List from '../pages/list';
+import GroupCard from '../pages/list';
+import Create from '../pages/create';
+import LeftSider from './LeftSider';
 
-const { Header, Footer, Sider, Content } = layout;
+const { Header, Footer, Sider, Content } = Zayout;
 
 function Layout() {
     return (
-        <layout>
-            <Sider>Sider</Sider>
-            <Layout>
+        <Zayout>
+            <Sider>
+                <LeftSider />
+            </Sider>
+            <Zayout>
                 <Header className="header">Header</Header>
                 <Content>
-                    <Empty />
+                    {/*<Empty />*/}
+                    
+                    <Routes>
+                        <Route path="/">
+                            <Route index element={<List />} />
+                            <Route path="create" element={<Create />}/>
+                        </Route>
+                    </Routes>
                 </Content>
-                <Footer className='footer'>Footer</Footer>
-            </Layout>
-        </layout>
+            </Zayout>
+        </Zayout>
     )
 }
 

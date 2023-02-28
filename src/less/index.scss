@@ -17,8 +17,13 @@ body {
         padding: 0;
     }
     .footer {
-        height: 100px;
+        height: 200px;
         padding: 0;
         background-color: #333;
+    }
+}
+.drag-placeholder {
+    + div {
+        display: none !important;
     }
 }

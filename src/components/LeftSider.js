@@ -90,12 +90,8 @@ function LeftSider() {
 					</div>
 				</Panel>
 				<Panel header="音频" key="mp3">
-					<SourceList
-						list={[{ title: 'aaaa' }, { title: 'bbbb' }]}
-						id="mp3"
-					/>
 					{
-						[{ title: 'aaaa' }, { title: 'bbbb' }].map(item => {
+						[{ title: '15420.mp3' }, { title: '15409.mp3' }].map(item => {
 							return (
 								<div
 									key={item.title}
@@ -108,7 +104,18 @@ function LeftSider() {
 					}
 				</Panel>
 				<Panel header="视频" key="mp4">
-					mp4
+					{
+						[{ title: '1676862209517.mp4' }, { title: '1676859029900.mp4' }].map(item => {
+							return (
+								<div
+									key={item.title}
+									onClick={() => onSourceChange('mp4')(item.title)}
+								>
+									{item.title}
+								</div>
+							)
+						})
+					}
 				</Panel>
 			</Collapse>
 		</div>

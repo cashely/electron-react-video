@@ -1,28 +1,28 @@
 {
 	"root": [
 		{
-			"id": "6POnerGjfbG7KVllQ0aJf",
+			"id": "HaCEa-ec_nOE5tKTK3svX",
 			"name": "15409.mp3",
 			"type": "mp3",
-			"path": "/Users/10010284/Documents/Coding/electron-projects/electron-react-video/sources"
+			"path": "G:\\node\\electron-react-video\\sources"
 		},
 		{
-			"id": "IX8I3t-fkk6ZRiOxPhmL6",
+			"id": "k-_z_T_cb1jq_n7PmgZ7b",
 			"name": "15420.mp3",
 			"type": "mp3",
-			"path": "/Users/10010284/Documents/Coding/electron-projects/electron-react-video/sources"
+			"path": "G:\\node\\electron-react-video\\sources"
 		},
 		{
-			"id": "V_TahhtVxKePYTNQlgd8x",
+			"id": "GjVBpsr2uUnDlqoJYh32f",
 			"name": "1676859029900.mp4",
 			"type": "mp4",
-			"path": "/Users/10010284/Documents/Coding/electron-projects/electron-react-video/sources"
+			"path": "G:\\node\\electron-react-video\\sources"
 		},
 		{
-			"id": "XY-wzceV0KyctMZE0OF0G",
+			"id": "oClLGVaLyttebV7G2ORP3",
 			"name": "1676862209517.mp4",
 			"type": "mp4",
-			"path": "/Users/10010284/Documents/Coding/electron-projects/electron-react-video/sources"
+			"path": "G:\\node\\electron-react-video\\sources"
 		}
 	]
 }

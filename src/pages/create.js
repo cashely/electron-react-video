@@ -74,7 +74,7 @@ function Create() {
 			<Content>
 				<div className="video">
 					<div className="mask">
-						<video ref={videoRef} muted src={`http://localhost:9012/sources/${sourceState.mp4}`} />
+						<video ref={videoRef} style={{ display: sourceState.mp4 ? 'block': 'none' }} muted src={sourceState.mp4 ? `file://${sourceState.mp4.path}/${sourceState.mp4.name}` : ''} />
 					</div>
 				</div>
 				<Affix offsetBottom={200} style={{ position: 'absolute', right: 20 }}>
@@ -84,15 +84,15 @@ function Create() {
 						<Button onClick={save}>保存</Button>
 					</div>
 				</Affix>
-				<div>{sourceState.mp3}</div>
-				<div>{sourceState.mp4}</div>
+				<div>{sourceState?.mp3?.name}</div>
+				<div>{sourceState?.mp4?.name}</div>
 			</Content>
 			<Footer style={{ height: 150, padding: 0, backgroundColor: '#666' }}>
 				<div className="audio">
 					<div className="mask">
-						<audio ref={audioRef} src={`http://localhost:9012/sources/${sourceState.mp3}`} />
+						<audio  style={{ display: sourceState.mp3 ? 'block': 'none' }} ref={audioRef} src={sourceState.mp3 ? `file://${sourceState.mp3.path}/${sourceState.mp3.name}` : ''} />
 						<div className="totalTime" ref={totalTimeRef}></div>
-						<span className="line" style={{ transform: `translate3d(${transX}px, 0, 0)`, transition: `transform ${transX === 0 ? 0 : 0.3}s`}}></span>
+						<span className="line" style={{ width: `${transX}px`, transition: `width ${transX === 0 ? 0 : 0}s`}}></span>
 					</div>
 				</div>
 			</Footer>

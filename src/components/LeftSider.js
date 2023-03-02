@@ -1,19 +1,15 @@
 import { Collapse, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { useSetRecoilState } from 'recoil';
-import { source } from '../atoms/index';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { sourcesState, source, mp3sState, mp4sState } from '../atoms/index';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { useEffect } from 'react';
 
 const { Panel } = Collapse;
 
 function SourceList({ id, list }) {
 
-	const setSourceState = useSetRecoilState(source);
-
-	const onSourceChange = (type) => (e) => {
-		console.log(type, e)
-		setSourceState(d => d[type] = e);
-	}
+	
 
 	return (
 		// <Droppable droppableId={id} isDragDisabled={true} isDropDisabled={true}>
@@ -63,6 +59,21 @@ function SourceList({ id, list }) {
 
 function LeftSider() {
 
+	const setSourcesState = useSetRecoilState(sourcesState);
+
+	const mp3s = useRecoilValue(mp3sState);
+	const mp4s = useRecoilValue(mp4sState);
+
+
+	async function findAllSources() {
+		const sources = await window.sdk.sources.findAll();
+		setSourcesState(sources)
+	}
+
+	useEffect(() => {
+		findAllSources();
+	}, []);
+
 	const onChange = (key) => {
 		console.log(key)
 	}
@@ -70,9 +81,8 @@ function LeftSider() {
 	const setSourceState = useSetRecoilState(source);
 
 	const onSourceChange = (type) => (e) => {
-		console.log(type, e)
+		console.log(e)
 		setSourceState(d => {
-			console.log(d[type], e)
 			return {...d, [type]: e };
 		});
 	}
@@ -91,13 +101,13 @@ function LeftSider() {
 				</Panel>
 				<Panel header="音频" key="mp3">
 					{
-						[{ title: '15420.mp3' }, { title: '15409.mp3' }].map(item => {
+						mp3s.map(item => {
 							return (
 								<div
-									key={item.title}
-									onClick={() => onSourceChange('mp3')(item.title)}
+									key={item.id}
+									onClick={() => onSourceChange('mp3')(item)}
 								>
-									{item.title}
+									{item.name}
 								</div>
 							)
 						})
@@ -105,13 +115,13 @@ function LeftSider() {
 				</Panel>
 				<Panel header="视频" key="mp4">
 					{
-						[{ title: '1676862209517.mp4' }, { title: '1676859029900.mp4' }].map(item => {
+						mp4s.map(item => {
 							return (
 								<div
-									key={item.title}
-									onClick={() => onSourceChange('mp4')(item.title)}
+									key={item.id}
+									onClick={() => onSourceChange('mp4')(item)}
 								>
-									{item.title}
+									{item.name}
 								</div>
 							)
 						})

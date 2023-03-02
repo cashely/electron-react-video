@@ -1,15 +1,29 @@
 import { useState, useEffect } from  'react';
+import { useRecoilState } from 'recoil';
+import { roomsState } from '../atoms/index';
 import SingleCard from '../components/SingleCard';
 import Empty from '../components/Empty';
+import { find } from 'lodash';
 
 
 function List() {
-	const [screens, setScreens] = useState([]);
+
+	const [rooms, setRooms] = useRecoilState(roomsState);
+
+	async function findAllRooms() {
+		const rooms = await window.sdk.rooms.findAll();
+		setRooms(rooms);
+	} 
+
+	useEffect(() => {
+		findAllRooms();
+	}, []);
+
 	return (
-		screens && screens.length ? (
+		rooms && rooms.length ? (
 			<div style={{ display: 'flex' }}>
 				{
-					screens.map(({ title, img }) => <SingleCard key={title} img={img} title={title} />)
+					rooms.map(({ name, id }) => <SingleCard key={id} title={name} />)
 				}
 			</div>
 		) : <Empty />

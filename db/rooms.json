@@ -1,0 +1,46 @@
+{
+	"root": [
+		{
+			"id": "ty52TuFhofyz8TQSnKzyl",
+			"name": "测试场景1",
+			"source": {
+				"mp3": {
+					"name": "12121.mp3",
+					"path": "/33334"
+				},
+				"mp4": {
+					"name": "1212334.mp3",
+					"path": "/456774"
+				}
+			}
+		},
+		{
+			"id": "PPLfwM8KpQcQ9eumPi8Ni",
+			"name": "测试场景1",
+			"source": {
+				"mp3": {
+					"name": "12121.mp3",
+					"path": "/33334"
+				},
+				"mp4": {
+					"name": "1212334.mp3",
+					"path": "/456774"
+				}
+			}
+		},
+		{
+			"id": "ap-Wg1GfsQRgzcgH-L8IE",
+			"name": "测试场景1",
+			"source": {
+				"mp3": {
+					"name": "12121.mp3",
+					"path": "/33334"
+				},
+				"mp4": {
+					"name": "1212334.mp3",
+					"path": "/456774"
+				}
+			}
+		}
+	]
+}

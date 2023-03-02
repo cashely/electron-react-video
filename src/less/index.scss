@@ -41,3 +41,30 @@ body {
         height: 100%;
     }
 }
+.audio {
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    .mask {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .totalTime {
+        width: 100%;
+        height: 60%;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+    }
+    .line {
+        /*animation: transform 3s;*/
+        /*transition: transform 1s;*/
+        width: 1px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+}

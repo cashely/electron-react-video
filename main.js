@@ -4,16 +4,12 @@ const path = require('path');
 
 const log = require('electron-log');
 
-const store = require('./utils/store');
+const { sources, rooms } = require('./utils/store');
 
 const handle = require('./utils/handle');
 
 log.transports.file.resolvePathFn = () => path.join(app.getAppPath(), 'logs/main.log');
 
-log.info(app.getAppPath())
-
-store.set('name', 12);
-store.set('name2', 12);
 
 require('./server/app')
 
